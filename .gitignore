@@ -1,0 +1,21 @@
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Build
+out/
+build/
+target/
+.gradle/
+
+# Logs and OS
+*.log
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Ignore compiled classes
+*.class
