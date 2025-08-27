@@ -1,5 +1,8 @@
 package models;
 
+/**
+ * Address class represents a physical address with country, region, city, street, and house details.
+ */
 public class Address {
     private String Country;
     private String region;
@@ -7,6 +10,15 @@ public class Address {
     private String street;
     private String house;
 
+    /**
+     * Constructs an Address object with the specified details.
+     *
+     * @param country the country of the address
+     * @param region  the region of the address
+     * @param city    the city of the address
+     * @param street  the street of the address
+     * @param house   the house number or name of the address
+     */
     public Address(String country, String region, String city, String street, String house) {
         this.Country = country;
         this.region = region;
@@ -14,6 +26,8 @@ public class Address {
         this.street = street;
         this.house = house;
     }
+    /** Getters and Setters */
+
     public String getCountry() {
         return Country;
     }
@@ -46,7 +60,7 @@ public class Address {
     }
     @Override
     public String toString() {
-        return "Address " +
+        return "Address: " +
                 "Country='" + Country + '\'' +
                 ", region='" + region + '\'' +
                 ", city='" + city + '\'' +

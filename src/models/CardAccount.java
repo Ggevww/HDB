@@ -1,31 +1,54 @@
 package models;
 
 import enums.*;
-public class CardAccount {
+
+import java.time.LocalDate;
+
+/**
+ * CardAccount class represents a card account with account number, CVV, expiration date, card type, balance, card status, and currency.
+ */
+public class CardAccount extends Account{
     private String accountNumber;
     private String cvv;
-    private String expirationDate;
+    private LocalDate expirationDate;
     private CardType cardType;
     private double balance;
     private CardStatus cardStatus;
     private Currency currency;
-    public CardAccount(String accountNumber, String cvv, String expirationDate, CardType cardType, double balance, CardStatus cardStatus, Currency currency) {
 
+    /** Constructors */
+    public CardAccount(String accountNumber, String cvv, String expirationDate, CardType cardType, double balance, Currency currency) {
+        super(accountNumber, balance, currency);
+        setCvv(cvv);
+        setExpirationDate(LocalDate.parse(expirationDate));
+        setCardType(cardType);
+        setCardStatus(CardStatus.ACTIVE);
     }
-    public String getAccountNumber(){
-        return accountNumber;
+    public CardAccount(String accountNumber, String cvv, String expirationDate, CardType cardType, Currency currency) {
+        super(accountNumber, 0, currency);
+        setCvv(cvv);
+        setExpirationDate(LocalDate.parse(expirationDate));
+        setCardType(cardType);
+        setCardStatus(CardStatus.ACTIVE);
     }
-    private void setAccountNumber(String accountNumber){
-        if(accountNumber == null || accountNumber.isEmpty()){
-            throw new IllegalArgumentException("Account number cannot be null or empty");
-        }
-        if (accountNumber.length() == 16) {
-            this.accountNumber = accountNumber;
-        }else{
-            throw new IllegalArgumentException("Account number must be 16 characters long");
-        }
+    public CardAccount(String accountNumber, String cvv, CardType cardType, Currency currency) {
+        super(accountNumber, 0, currency);
+        setAccountNumber(accountNumber);
+        setCvv(cvv);
+        setExpirationDate(LocalDate.now().plusYears(5));
+        setCardType(cardType);
+        setCardStatus(CardStatus.ACTIVE);
+    }
+    public CardAccount(String accountNumber, String cvv, CardType cardType, double balance, Currency currency) {
+        super(accountNumber, balance, currency);
+        setAccountNumber(accountNumber);
+        setCvv(cvv);
+        setExpirationDate(LocalDate.now().plusYears(5));
+        setCardType(cardType);
+        setCardStatus(CardStatus.ACTIVE);
+    }
 
-    }
+    /** Getters and Setters */
     public String getCvv() {
         return cvv;
     }
@@ -33,25 +56,56 @@ public class CardAccount {
         if(cvv == null || cvv.isEmpty()){
             throw new IllegalArgumentException("CVV cannot be null or empty");
         }
-        if (cvv.length() == 3) {
+        if (cvv.trim().length() == 3) {
             this.cvv = cvv;
         }else{
             throw new IllegalArgumentException("CVV must be 3 characters long");
         }
     }
-    public String getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return expirationDate;
     }
-    public void setExpirationDate(String expirationDate) {
-        if(expirationDate == null || expirationDate.isEmpty()){
-            throw new IllegalArgumentException("Expiration date cannot be null or empty");
+    public void setExpirationDate(LocalDate expirationDate) {
+        if(expirationDate == null){
+            throw new IllegalArgumentException("Expiration date cannot be null");
         }
-        // Simple validation for MM/YY format
-        if (expirationDate.matches("(0[1-9]|1[0-2])/[0-9]{2}")) {
+        if (expirationDate .isAfter(LocalDate.now())) {
             this.expirationDate = expirationDate;
-        }else{
+        }
+        else{
             throw new IllegalArgumentException("Expiration date must be in MM/YY format");
         }
     }
+    public CardType getCardType() {
+        return cardType;
+    }
+    public void setCardType(CardType cardType) {
+        if(cardType == null){
+            throw new IllegalArgumentException("Card type cannot be null");
+        }
+        this.cardType = cardType;
+    }
+    public CardStatus getCardStatus() {
+        return cardStatus;
+    }
+    public void setCardStatus(CardStatus cardStatus) {
+        if(cardStatus == null){
+            throw new IllegalArgumentException("Card status cannot be null");
+        }
+        this.cardStatus = cardStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "CardAccount: " +
+                "accountNumber='" + getAccountNumber() + '\'' +
+                ", expirationDate=" + expirationDate +
+                ", cardType=" + cardType +
+                ", balance=" + getBalance() +
+                ", cardStatus=" + cardStatus +
+                ", currency=" + getCurrency();
+    }
+
+
 
 }

@@ -1,5 +1,8 @@
 package enums;
 
+/**
+ * Enumeration representing different currencies and their associated interest rates.
+ */
 public enum Currency {
     AMD(0.05),
     USD(0.03),
