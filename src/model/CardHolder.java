@@ -1,4 +1,4 @@
-package models;
+package model;
 
 /**
  * CardHolder class represents a card holder with passport number, full name, address, associated card accounts, and a bank account.

@@ -1,7 +1,7 @@
-package models;
+package model;
 
 import enums.ServiceType;
-import transactions.AppointmentManager;
+import transaction.impl.AppointmentManager;
 
 import java.time.LocalDateTime;
 

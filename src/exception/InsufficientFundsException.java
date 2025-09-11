@@ -1,4 +1,4 @@
-package exceptions;
+package exception;
 
 /**
  * Custom exception class for handling insufficient funds errors.

@@ -1,14 +1,15 @@
-package transactions;
+package transaction.impl;
 
 import enums.CardStatus;
-import exceptions.BankTransactionException;
-import exceptions.InsufficientFundsException;
-import models.CardAccount;
+import exception.BankTransactionException;
+import exception.InsufficientFundsException;
+import model.CardAccount;
+import transaction.Transaction;
 
 /**
  * CardTransaction class implements the Transaction interface to handle deposits, withdrawals, and transfers for a CardAccount.
  */
-public class CardTransaction implements Transaction{
+public class CardTransaction implements Transaction {
     private final CardAccount card;
 
     public CardTransaction(CardAccount card){

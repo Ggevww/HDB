@@ -1,4 +1,4 @@
-package models;
+package model;
 
 /**
  * Bank class represents a bank with its name, address, and associated card holders.
@@ -63,7 +63,7 @@ public class Bank {
     @Override
     public String toString() {
         return "Bank: " +
-                "bankName='" + bankName + '\'' +
+                "bank name='" + bankName + '\'' +
                 ", address=" + address +
                 ", cardHolders=" + cardHolders.length;
 

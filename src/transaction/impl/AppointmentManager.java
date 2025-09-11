@@ -1,6 +1,6 @@
-package transactions;
+package transaction.impl;
 
-import models.Appointment;
+import model.Appointment;
 
 import java.util.ArrayList;
 

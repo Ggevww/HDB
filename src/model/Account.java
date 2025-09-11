@@ -1,4 +1,4 @@
-package models;
+package model;
 
 import enums.Currency;
 /**
@@ -40,6 +40,11 @@ public class Account {
     void setAccountNumber(String accountNumber){
         if(accountNumber == null || accountNumber.isEmpty()){
             throw new IllegalArgumentException("Account number cannot be null or empty");
+        }
+        for(int i = 0; i < accountNumber.length(); i++){
+            if(!Character.isDigit(accountNumber.charAt(i))){
+                throw new IllegalArgumentException("Account number must contain only digits");
+            }
         }
         if (accountNumber.trim().length() == 16) {
             this.accountNumber = accountNumber;

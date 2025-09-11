@@ -1,4 +1,4 @@
-package models;
+package model;
 
 /**
  * Address class represents a physical address with country, region, city, street, and house details.

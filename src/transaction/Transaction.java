@@ -1,7 +1,7 @@
-package transactions;
+package transaction;
 
-import exceptions.*;
-import models.*;
+import exception.*;
+import model.*;
 
 /**
  * Transaction interface defines methods for deposit, withdraw, and transfer operations on bank and card accounts.

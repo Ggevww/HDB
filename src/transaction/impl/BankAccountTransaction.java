@@ -1,13 +1,14 @@
-package transactions;
+package transaction.impl;
 
 import enums.BankAccountType;
-import exceptions.*;
-import models.BankAccount;
+import exception.*;
+import model.BankAccount;
+import transaction.Transaction;
 
 /**
  * BankAccountTransaction class implements the Transaction interface to handle deposits, withdrawals, and transfers for a BankAccount.
  */
-public class BankAccountTransaction implements Transaction{
+public class BankAccountTransaction implements Transaction {
     BankAccount account;
 
     public BankAccountTransaction(BankAccount account){
